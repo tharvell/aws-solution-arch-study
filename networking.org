@@ -1,0 +1,33 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+TITLE: AWS Networking 
+#+EMAIL: harvellt@gmail.com 
+#+AUTHOR: Tom Harvell 
+
+#+REVEAL_THEME: night 
+#+OPTIONS: num:nil toc:nil search:nill
+
+
+* IP Addresses 
+** IPv4
+    - 4 Groups of 8 bits  
+      + 00000000.00000000.00000000.00000000.00000000000
+    - Which can be represented with integers   
+      + 255.255.255.255
+
+** CIDR Notation 
+    - It looks like an IP address with a slash suffix : 0.0.0.0/32
+    - {{{color(green, routing prefix)}}}  available addresses  {{{color(blue, # of leading bits in subnet mask)}}} 
+    - Just for illustration no one uses 'bit' notation    
+      + {{{color(green,00000000.00000000.00000000.000000)}}}00{{{color(blue,/30)}}} 
+      + Leaves 4 open addresses 
+      + 00000000.00000000.00000000.00000000
+      + 00000000.00000000.00000000.00000001
+      + 00000000.00000000.00000000.00000010
+      + 00000000.00000000.00000000.00000011
+    - 10.0.0.0/30  (Example of real notation) 
+      + 10.0.0.0
+      + 10.0.0.1
+      + 10.0.0.2
+      + 10.0.0.3
+
