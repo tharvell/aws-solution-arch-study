@@ -1,3 +1,5 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+
 #+TITLE: S3
 #+EMAIL: harvellt@gmail.com 
 #+AUTHOR: Tom Harvell 
@@ -5,5 +7,117 @@
 #+REVEAL_THEME: night 
 #+OPTIONS: num:nil toc:nil
 
+* S3
+  Amazon Simple Storage Service (Amazon S3) 
+  is an object storage service that offers industry-leading scalability, 
+  data availability, security, and performance. 
 
-*  
+* Key Concepts 
+- Bucket 
+- Key 
+- Prefix 
+- 
+** Bucket 
+** Key
+** Prefix 
+
+
+
+* S3 Standard   
+| Metric                            | Designed     |   SLA |
+|-----------------------------------+--------------+-------|
+| Availability                      | 99.99%       | 99.9% |
+| Durability                        | 11x9%        | 11x9% |
+| AZs                               | >= 3         |       |
+| Min Capacity charge /obj.         | N/A          |       |
+| Min storage duration charge /obj. | N/A          |       |
+| Retrieval fee                     | N/A          |       |
+| First byte latency                | milliseconds |       |
+
+** Typical use cases
+   - Standard stuff  
+
+
+* S3 Intelligent-Tiering  
+| Metric                            | Designed     |   SLA |
+|-----------------------------------+--------------+-------|
+| Availability                      | 99.9%        |   99% |
+| Durability                        | 11x9%        | 11x9% |
+| AZs                               | >= 3         |       |
+| Min Capacity charge /obj.         | N/A          |       |
+| Min storage duration charge /obj. | 30 Days      |       |
+| Retrieval fee                     | N/A          |       |
+| First byte latency                | milliseconds |       |
+
+** Typical use cases
+   - Standard stuff  
+
+
+
+* S3 Standard-IA
+| Metric                            | Designed     |   SLA |
+|-----------------------------------+--------------+-------|
+| Availability                      | 99.9%        | 99.5% |
+| Durability                        | 11x9%        | 11x9% |
+| AZs                               | >= 3         |       |
+| Min Capacity charge /obj.         | 128KB        |       |
+| Min storage duration charge /obj. | 30 Days      |       |
+| Retrieval fee                     | $/GB         |       |
+| First byte latency                | milliseconds |       |
+
+
+** Typical use case 
+   - Stuff you don't want to access all the time
+
+* S3 IA One-Region
+| Metric                            | Designed     |   SLA |
+|-----------------------------------+--------------+-------|
+| Availability                      | 99.99%       | 99.9% |
+| Durability                        | 11x9%        | 11x9% |
+| AZs                               | >= 3         |       |
+| Min Capacity charge /obj.         | 128KB        |       |
+| Min storage duration charge /obj. | 30 Days      |       |
+| Retrieval fee                     | $/GB         |       |
+| First byte latency                | milliseconds |       |
+
+
+** Typical use case 
+   - Stuff you don't want to access but maybe 
+
+* S3 Glacier
+| Metric                            | Designed                   |   SLA |
+|-----------------------------------+----------------------------+-------|
+| Availability                      | 99.99%                     | 99.9% |
+| Durability                        | 11x9%                      | 11x9% |
+| AZs                               | >= 3                       |       |
+| Min Capacity charge /obj.         | 40KB                       |       |
+| Min storage duration charge /obj. | 90 Days                    |       |
+| Retrieval fee                     | $/GB                       |       |
+| First byte latency                | configurable mins to hours |       |
+
+
+** Typical use case
+    - Stuff you want to save but are willing to wait hours to access
+
+ 
+* S3 Glacier Deep Storage 
+| Metric                            | Designed     |   SLA |
+|-----------------------------------+--------------+-------|
+| Availability                      | 99.99%       | 99.9% |
+| Durability                        | 11x9%        | 11x9% |
+| AZs                               | >= 3         |       |
+| Min Capacity charge /obj.         | 40KB         |       |
+| Min storage duration charge /obj. | 180 Days     |       |
+| Retrieval fee                     | $/GB         |       |
+| First byte latency                | hours        |       |
+
+
+** Typical use case
+   - Stuff you want to save but are willing to wait a day to access 
+
+* Encryption Options 
+** AWS Keys
+** Bring your own keys 
+** Encrypt before upload 
+
+** 
