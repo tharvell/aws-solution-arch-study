@@ -7,6 +7,17 @@
 #+REVEAL_THEME: night 
 #+OPTIONS: num:nil toc:nil search:nill
 
+* Key AWS Terminology 
+    - Virtual Private Cloud (VPC)
+    - Region
+    - Availability Zone 
+    - Subnet 
+    - Elastic Network Interface (ENI) 
+** VPC
+** Region
+** Availability Zone 
+** Subnet 
+** ENI 
 
 * IP Addresses 
 ** IPv4
@@ -30,4 +41,9 @@
       + 10.0.0.1
       + 10.0.0.2
       + 10.0.0.3
+
+* Network Access Control List (NACL) 
+
+* Security Group (SG) 
+
 
