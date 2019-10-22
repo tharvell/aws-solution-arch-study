@@ -7,13 +7,43 @@
 #+REVEAL_THEME: night 
 #+OPTIONS: num:nil toc:nil search:nill
 
-* Compute Optimized 
+* Amazon Machine Images (AMI) 
+  An individual AMIs particular to a single region. However, typically all but Private AMIs will be replicated in most regions. 
 
-* Accelerated Computing 
+  - Amazon Quick Start AMIs
+  - AWS Marketplace AMIs 
+  - Community AMIs  
+  - Private AMIs 
+** Amazon Quick Start AMIs
+   - First images you will seen in the console. 
+   - Provided by and officially supported by Amazon. 
 
-* Memory Optimized 
+** AWS Marketplace AMIs 
+   - Official, production-ready images. 
+   - provided and supported by industry vendors.
+ 
+** Community AMIs  
+   - Created and maintained by independent vendors and individuals. 
+   - Usually built to meet a specific need. 
+   - Good for pre-build open source stacks on a single machine.  
+ 
+** Private AMIs 
+   - Your own instance deployments as private AMIs. 
 
-* General Purpose 
 
-* Storage Optimized
+* Amazon instance types 
+   - Compute Optimized 
+   - Accelerated Computing 
+   - Memory Optimized 
+   - General Purpose 
 
+** Compute Optimized 
+   - C5, C4 
+** Accelerated Computing 
+   - P3, P2, G3, F1 
+** Memory Optimized 
+   - X1e, X1, R5, R4, z1d
+** General Purpose 
+   - T2, T3, M5, M4
+** Storage Optimized
+   - H1, I3, D2 
