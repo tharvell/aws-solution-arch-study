@@ -1,0 +1,19 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+TITLE: AWS Networking 
+#+EMAIL: harvellt@gmail.com 
+#+AUTHOR: Tom Harvell 
+
+#+REVEAL_THEME: night 
+#+OPTIONS: num:nil toc:nil search:nill
+
+* Security 
+
+* Stability 
+
+* Operationalized 
+
+* Performance 
+
+* Cost  
+  
