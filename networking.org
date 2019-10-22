@@ -42,8 +42,12 @@
       + 10.0.0.2
       + 10.0.0.3
 
-* Network Access Control List (NACL) 
 
-* Security Group (SG) 
-
-
+* Firewall Analogs 
+ -  Network Access Control List (NACL) 
+ -  Security Group (SG) 
+** Network Access Control List (NACL) 
+** Security Group (SG) 
+  - Rules are 'Stateful' 
+    + If an inbound request returns a respnose on another port a steateful  
+* Internet Gateway 
