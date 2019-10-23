@@ -1,0 +1,45 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+TITLE: AWS Databases  
+#+EMAIL: harvellt@gmail.com 
+#+AUTHOR: Tom Harvell 
+
+#+REVEAL_THEME: night 
+#+OPTIONS: num:nil toc:nil search:nill
+
+* Key concepts for the test 
+  - Online Analytical Processing (OLAP) 
+  - Online Transactional Processing (OLTP)
+  - microsoft sql server
+
+* 3+ Managed Database Services 
+  - These are the core for the test. There are more being released (Graph database) 
+  - Relational Database Services  (RDS) 
+  - Redshift 
+  - DynamoDB 
+
+
+ 
+* RDS  
+** Database Instance Classes 
+   - Standard 
+     + Meets the vast majority of use cases. 
+   - Memory Optimized
+     + For databases with hefty performance requirements.  
+   - Burstable
+     + For dev, test and other non-prod
+** Storage   
+   - General-Purpose SSD
+   - Provisioned IPOS SSD (io1)
+   - Magnetic Storage 
+
+** Database Engines 
+   - mysql
+   - mariaDB
+   - oracle
+   - postgreSQL
+   - amazon aurora
+
+* Redshift 
+
+* DynamoDB
