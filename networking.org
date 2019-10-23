@@ -8,16 +8,37 @@
 #+OPTIONS: num:nil toc:nil search:nill
 
 * Key AWS Terminology 
-    - Virtual Private Cloud (VPC)
-    - Region
+    - Regions 
     - Availability Zone 
+    - Virtual Private Cloud (VPC)
     - Subnet 
     - Elastic Network Interface (ENI) 
-** VPC
 ** Region
-** Availability Zone 
+   - Each AWS Region is a separate geographic area. 
+   - Amazon RDS provides you the ability to place resources, such as instances, and data in multiple locations. 
+   - Resources aren't replicated across AWS Regions unless you do so specifically.
+** Availability Zone (AZ)
+   - Each AWS Region has multiple, isolated locations known as Availability Zones. 
+   - Regions will have 3 or more AZs
+   - Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones. 
+** Virtual Private Cloud (VPC)
+   - provision a logically isolated section of Amazon Web Services (AWS) Cloud
 ** Subnet 
-** ENI 
+   - After creating a VPC, you can add one or more subnets in each Availability Zone.
+   - You specify the CIDR block for the subnet, which is a subset of the VPC CIDR block.
+   - Each subnet must reside entirely within one Availability Zone and cannot span zones.
+** Elastic Network Interfaces (ENI) 
+   - A logical networking component in a VPC that represents a virtual network card.
+   - An ENI can be made up of the following components
+     + A primary private IPv4 address from the IPv4 address range of your VPC
+     + One or more secondary private IPv4 addresses from the IPv4 address range of your VPC
+     + One Elastic IP address (IPv4) per private IPv4 address
+     + One public IPv4 address
+     + One or more IPv6 addresses
+     + One or more security groups
+     + A MAC address
+     + A source/destination check flag
+     + A description
 
 * IP Addresses 
 ** IPv4
@@ -49,5 +70,6 @@
 ** Network Access Control List (NACL) 
 ** Security Group (SG) 
   - Rules are 'Stateful' 
-    + If an inbound request returns a respnose on another port a steateful  
+    + If an inbound request returns a response on another port a steateful
+
 * Internet Gateway 

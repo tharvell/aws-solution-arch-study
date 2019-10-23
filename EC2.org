@@ -38,12 +38,25 @@
    - General Purpose 
 
 ** Compute Optimized 
-   - C5, C4 
+   - C5, C4
+   - Demanding web servers
+   - High performance machine learning 
 ** Accelerated Computing 
-   - P3, P2, G3, F1 
+   - P3, P2, G3, F1
+   - General purpose graphics processing units
+   - Mostly Nvidia
+   - F1 is Xilinx Virtex UltraScale+ field-programmable gate array (FPGA)
+
 ** Memory Optimized 
    - X1e, X1, R5, R4, z1d
+   - Databases
+   - Data analysis 
 ** General Purpose 
    - T2, T3, M5, M4
+   - T2.micro is free tier
+   - Designed to provide a balance of compute, memory and network resources. 
 ** Storage Optimized
-   - H1, I3, D2 
+   - H1, I3, D2
+   - Low latency instance storage volumes
+   - Distributed file systems
+   - Heavy weight data processing applications 
