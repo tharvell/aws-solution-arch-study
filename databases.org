@@ -30,8 +30,11 @@
      + For dev, test and other non-prod
 ** Storage   
    - General-Purpose SSD
+     + 
    - Provisioned IPOS SSD (io1)
-   - Magnetic Storage 
+     + 
+   - Magnetic Storage
+     + 
 
 ** Database Engines 
    - mysql
