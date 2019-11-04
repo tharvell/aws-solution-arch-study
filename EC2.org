@@ -1,4 +1,4 @@
-#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+*#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+MACRO: color @@html:<font color="$1">$2</font>@@
 #+TITLE: AWS EC2
 #+EMAIL: harvellt@gmail.com 
@@ -7,7 +7,7 @@
 #+REVEAL_THEME: night 
 #+OPTIONS: num:nil toc:nil search:nill
 
-* Amazon Machine Images (AMI) 
+ Amazon Machine Images (AMI) 
   An individual AMIs particular to a single region. However, typically all but Private AMIs will be replicated in most regions. 
 
   - Amazon Quick Start AMIs

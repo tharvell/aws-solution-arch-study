@@ -1,0 +1,145 @@
+*#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+TITLE: Udemy Questions Wrong Attempt 1 
+#+EMAIL: harvellt@gmail.com 
+#+AUTHOR: Tom Harvell 
+
+#+REVEAL_THEME: night 
+#+OPTIONS: num:nil toc:nil search:nill
+
+# * 13 Which of the following can constitute the term of a 'Golden Image'
+** This refers to an AMI that has been constructed from a custom image. 
+** Explanation You can customize an Amazon EC2 instance and then save its configuration by creating an Amazon Machine Image (AMI). You can launch as many instances from the AMI as you need, and they will all include those customizations that you’ve made. Each time you want to change your configuration you will need to create a new golden image, so you will need to have a versioning convention to manage your golden images over time Because of the above explanation , all of the remaining options are automatically invalid. For more information on AMI’s, please visit the below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+
+* 14 When designing a health check for your web application which is hosted behind an elastic load balancer, which of the following health checks is ideal to implement. 
+** HTTP health check 
+** Option B and D is invalid because UDP health checks are not possible Option A is partially valid. A simple TCP health check would not detect the scenario where the instance itself is healthy, but the web server process has crashed. Instead, you should assess whether the web server can return a HTTP 200 response for some simple request.  For more information on ELB health checks, please visit the below URL: http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html
+
+* 15 Which of the following is an example of synchronous replication which occurs in the AWS service?
+** AWS Multi-AZ RDS 
+** Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads. When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). For more information on Multi-AZ, please visit the below URL: https://aws.amazon.com/rds/details/multi-az/ Option A is invalid because Amazon RDS takes a snapshot of the source instance and creates a read-only instance from the snapshot. For MySQL, MariaDB and PostgreSQL, Amazon RDS  uses those engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. Option C is invalid, because the Redis engine for Amazon ElastiCache supports replication with automatic failover, but the Redis engine’s replication is asynchronous Option D is invalid because this is not supported by AWS.
+
+* 19 You have created your own VPC and subnet in AWS. You have launched an instance in that subnet. You have noticed that the instance is not receiving a DNS name. Which of the below options could be a valid reason for this issue.
+** The VPC configuration needs to be changed
+** If the DNS hostnames option of the VPC is not set to ‘Yes’ then the instances launched in the subnet will not get DNS Names. You can change the option by choosing your VPC and clicking on ‘Edit DNS Hostnames’ Option A and B are invalid because if the CIDR blocks were invalid then the VPC or subnet would not be created. Option D is invalid because the subnet configuration does not have the effect on the DNS hostnames. For more information on VPC’s,  please visit the below URL: https://aws.amazon.com/vpc/
+
+* 20 You have created your own VPC and subnet in AWS. You have launched an instance in that subnet. You have attached an internet gateway to the VPC and seen that the instance has a public IP. The Route table is 10.0.0.0/16. The instance still cannot be reached from the Internet. Which of the below changes need to be made to the route table to ensure that the issue can be resolved.
+** Add the following entry to the route table - 0.0.0.0/0 -> Internet Gateway 
+** The Route table need to be to 0.0.0.0/0 to ensure that the routes from the internet can reach the instance Hence by default all other options become invalid For more information on Route Tables,  please visit the below URL: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+
+* 24 You are creating a number of EBS Volumes for your EC2 instances. You are concerned on the backups of the EBS Volumes. Which of the below is a way to backup the EBS Volumes
+** Write a cron job that uses the AWS CLI to take a snapshot of production EBS volumes 
+** ** You are creating a number of EBS Volumes for your EC2 instances. You are concerned on the backups of the EBS Volumes. Which of the below is a way to backup the EBS Volumes
+
+* 25 You have a set of IIS Servers running on EC2 instances for a high traffic web site. You want to collect and process the log files generated from the IIS Servers. Which of the below services is ideal to run in this scenario
+** Amazon S3 for storing the log files and Amazon EMR for processing the log files. 
+** Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB. Option B and C , even though partially correct would be an overhead for EC2 Instances to process the log files when you already have a ready made service which can help in this regard Option D is in invalid because DynamoDB is not an ideal option to store log files. For more information on EMR,  please visit the below URL: http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html
+
+* 29 You run a website which hosts videos and you have two types of members, premium fee paying members and free members. All videos uploaded by both your premium members and free members are processed by a fleet of EC2 instances which will poll SQS as videos are uploaded. However you need to ensure that your premium fee paying members videos have a higher priority than your free members. How do you design SQS?
+** Create 2 SQS queues one for premium members and one for free members. Program your EC2 fleet to poll the premium queue first and if empty, to poll your free SQS queue. 
+** In this case, you can have multiple SQS queues. The SQS queues for the premium members can be polled first by the EC2 Instances and then those messages can be processed. For information on SQS best practices, please refer to the below link http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-best-practices.html
+
+* You want to ensure that you keep a check on the Active Volumes , Active snapshots and Elastic IP addresses you use so that you don’t go beyond the service limit. Which of the below services can help in this regard?
+** AWS Trusted Advisor
+** An online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment, Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices. Below is a snapshot of the service limits it can monitor Option A is invalid because even though you can monitor resources , it cannot be checked against the service limit. Option B is invalid because this is the Elastic Compute cloud service Option D is invalid because it can be send notification but not check on service limits For more information on the Trusted Advisor monitoring,  please visit the below URL: https://aws.amazon.com/premiumsupport/ta-faqs/
+
+* 35 You have several AWS reserved instances in your account. They have been running for some time, but now need to be shutdown since they are no longer required. The data is still required for future purposes. Which of the below possible 2 steps can be taken.
+** 2 Answers 
+   - Sell the instances on the AWS Reserved Instance Market Place. 
+   - Take snapshots of the EBS volumes and terminate the instances. 
+** The Reserved Instance Marketplace is a platform that supports the sale of third-party and AWS customers' unused Standard Reserved Instances, which vary in term lengths and pricing options. For example, you may want to sell Reserved Instances after moving instances to a new AWS region, changing to a new instance type, ending projects before the term expiration, when your business needs change, or if you have unneeded capacity For more information on selling instances,  please visit the below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Since the data is still required , its better to take snapshots of the existing volumes and then terminate the instances. For more information on EBS Snapshots,  please visit the below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Option A and D are invalid , because you cannot convert Reserved instances to either on-demand instances or Spot Instances.
+
+* 40 A t2.medium EC2 instance type must be launched with what type of Amazon Machine Image (AMI)?
+** An Amazon EBS-backed Hardware Virtual Machine AMI 
+** The AWS Documentation mentions the below Linux Amazon Machine Images use one of two types of virtualization: paravirtual (PV) or hardware virtual machine (HVM). The main difference between PV and HVM AMIs is the way in which they boot and whether they can take advantage of special hardware extensions (CPU, network, and storage) for better performance. The below snapshot also shows the support for the T2 Instance family. For more information on the Instance types for Linux AMI’s, please refer to the below link https://aws.amazon.com/amazon-linux-ami/instance-type-matrix/
+
+* 42 You have some EC2 instances hosted in your AWS environment. You have a concern that not all of the EC2 instances are being utilized. Which of the below mentioned services can help you find underutilized resources in AWS ? Select 2 options.
+** 2 Answers  
+   - AWS Cloudwatch 
+   - AWS Trust Advisor 
+** The AWS Trusted Advisor can help you identify underutilized resources in AWS. For more information on AWS trusted advisor please visit the below URL: https://aws.amazon.com/premiumsupport/trustedadvisor/ If You look at the Cloudwatch graphs, the CPU utilization of your resources and you can see the trend over time in the graphs. For more information on AWS Cloudwatch please visit the below URL: https://aws.amazon.com/cloudwatch/
+
+* 43 Which of the following features can be used to capture information for outgoing and incoming IP traffic from network interfaces in a VPC.
+** AWS VPC Flow Logs 
+** VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs. After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs. For more information on VPC Flowlogs please visit the below URL: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html
+
+* 44 What are the main benefits of AWS regions? Select 2 options
+** 2 Answers 
+   - Regions allow you to design applications to conform to specific laws and regulations for specific parts of the world.
+   - Regions allow you to place AWS Resources in the area of the world closest to your customers who access those resources. 
+** AWS developer data centers across the world to help develop solutions that are close to the customer as possible. They also have center in core countries to help tie up with the specific laws and regulations for specific parts of the world. AWS does not have centers in every location of the world, hence option C is invalid. Services and prices are specific to every region, hence option B is invalid. For more information on Regions please visit the below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html 
+   
+* What is the service name in AWS that can display costs in a chart format?
+** Cost Explorer 
+** Cost Explorer is a free tool that you can use to view charts of your costs (also known as spend data) for up to the last 13 months, and forecast how much you are likely to spend for the next three months. You can use Cost Explorer to see patterns in how much you spend on AWS resources over time, identify areas that need further inquiry, and see trends that you can use to understand your costs. You can also specify time ranges for the data you want to see, and you can view time data by day or by month.  For more information on Cost Explorer, please visit the URL: http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-explorer-what-is.html
+
+* In the shared responsibility model, what is the customer not responsible for? 
+** Edge Locations 
+** AWS has published the Shared Responsibility Model. And the Physical networking comes as part of the responsibility of AWS. For more information on the Shared Responsibility Model, please refer to the below URL: https://aws.amazon.com/compliance/shared-responsibility-model/
+
+* You work for a market analysis firm who are designing a new environment. They will ingest large amounts of market data via Kinesis and then analyze this data using Elastic Map Reduce. The data is then imported in to a high performance NoSQL Cassandra database which will run on EC2 and then be accessed by traders from around the world. The database volume itself will sit on 2 EBS volumes that will be grouped into a RAID 0 volume. They are expecting very high demand during peak times, with an IOPS performance level of approximately 15,000. Which EBS volume should you recommend?
+** Provisioned IOPS (PIOPS)
+** When you are looking at hosting intensive I/O applications such as databases, always look to using IOPS as the preferred storage option. For more information on the various EBS Volume types, please refer to the below link http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+
+* You keep on getting an error while trying to attach an Internet Gateway to a VPC. What is the most likely cause of the error?
+** An internet gateway is already attached to the VPC
+** You can only have one internet gateway attached to your VPC at one time, hence the error must be coming because there is already an internet gateway attached. For more information on Internet gateways, please refer to the below link: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html
+
+* 65 You are creating a Provisioned IOPS volume in AWS. The size of the volume is 8 GiB. Which of the following are the possible values that can put for the IOPS of the volume
+** 400
+** The Maximum ratio of IOPS to volume size is 50:1 , so if the volume size is 8 GiB , the maximum IOPS of the volume can be 400. If you go beyond this value , you will get an error as shown in the screenshot below. For more information on Provisioned IOPS, please visit the below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.htm
+
+* A photo-sharing service stores pictures in Amazon Simple Storage Service (S3) and allows application sign-in using an OpenID Connect-compatible identity provider. Which AWS Security Token Service approach to temporary access should you use for the Amazon S3 operations?
+** Web Identity Federation 
+** The AWS Documentation mentions the below With web identity federation, you don't need to create custom sign-in code or manage your own user identities. Instead, users of your app can sign in using a well-known identity provider (IdP) —such as Login with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)-compatible IdP, receive an authentication token, and then exchange that token for temporary security credentials in AWS that map to an IAM role with permissions to use the resources in your AWS account. Using an IdP helps you keep your AWS account secure, because you don't have to embed and distribute long-term security credentials with your application. For more information on Web Identity Federation, please visit the belowURL: http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
+
+* Which of the below resources cannot be tagged in AWS
+** VPC Endpoint
+** Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type — you can quickly identify a specific resource based on the tags you've assigned to it. Each tag consists of a key and an optional value, both of which you define.  But you cannot tag a VPC endpoint For more information on AWS Resourcing Tagging, please visit http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+
+* 78 After migrating an application architecture from on-premise to AWS you will not be responsible for the ongoing maintenance of packages for which of  the following AWS services that your application uses. Choose the 2 correct answers from the options below.
+** 2 Answers 
+   - RDS
+   - DynamoDB
+** Both RDS and DynamoDB are managed solutions provided by AWS. Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database administration tasks, freeing you up to focus on your applications and business.  For more information on RDS, please refer to the below link https://aws.amazon.com/rds/ Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models. For more information on DynamoDB, please refer to the below link https://aws.amazon.com/dynamodb/
+
+* 81 Your supervisor asks you to create a decoupled application whose process includes dependencies on EC2 instances and servers located in your company’s on-premises data center. Which of these are you least likely to recommend as part of that process? Choose the correct answer from the options below:
+** SQS polling from an EC2 instance using IAM user credentials. 
+** Note that the question asks you for the least likely recommended option. The correct answer is C , SQS polling from an EC2 instance using IAM user credentials.   An EC2 role should be used when deploying EC2 instances to grant permissions rather than storing IAM user credentials in EC2 instances. You should use IAM roles for secure communication between EC2 instances and resources on AWS. Your most likely scenario will actually be SQS polling from an EC2 instance deployed with an IAM role because when your polling SQS from EC2 you should use IAM roles. What you should never do is use IAM user api keys for authentication to poll sqs messages. An IAM role is similar to a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have any credentials (password or access keys) associated with it. Instead, if a user is assigned to a role, access keys are created dynamically and provided to the user. The most likely scenario will actually be SQS polling from an EC2 instance deployed with an IAM role because when your polling SQS from EC2 you should use IAM roles. We should never use IAM user api keys for authentication to poll SQS messages. Option C is correct which is least likely scenario. For more information on IAM Roles, please refer to the below link: http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+
+* 82 You are a systems administrator and you need to monitor the health of your production environment. You decide to do this using Cloud Watch, however you notice that you cannot see the health of every important metric in the default dash board. Which of the following metrics do you need to design a custom cloud watch metric for, when monitoring the health of your EC2 instances?
+** Memory usage. 
+** When you look at your cloudwatch metric dashboard , you can see the metrics for CPU Usage , Disk read operations and Network in You need to add a custom metric for Memory Usage. An example of enabling the custom metric is shown below URL: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
+
+* 88 You are the solution architect for a company. The company has a requirement to deploy an application which will need to have session management in place. Which of the following services can be used to store session data for session management?
+** RDS, DynamoDB & Elasticache 
+** These options are the best when it comes to storing session data. Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory data store or cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory data stores, instead of relying entirely on slower disk-based databases For more information , please visit the below URL: https://aws.amazon.com/elasticache/ For DynamoDB , this is also evident from the AWS documentation For more information , please visit the below URL: http://docs.aws.amazon.com/gettingstarted/latest/awsgsg-intro/gsg-aws-database.html And by default , in the industry , RDS have been used to store session data. The Elastic Load Balancer , AWS Storage Gateway  and Cloudwatch cannot store session data.
+
+* 90 Which of the following is incorrect with regards to Private IP addresses?
+** In Amazon VPC, an instance does not retain its private IP address when the instance is stopped. 
+** The following is true with regards to Private IP addressing For instances launched in a VPC, a private IPv4 address remains associated with the network interface when the instance is stopped and restarted, and is released when the instance is terminated. For instances launched in EC2-Classic, we release the private IPv4 address when the instance is stopped or terminated. If you restart your stopped instance, it receives a new private IPv4 address For more information on IP addressing , please refer to the below link: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html
+
+* You have written a CloudFormation template that creates 1 elastic load balancer fronting 2 EC2 instances. Which section of the template should you edit so that the DNS of the load balancer is returned upon creation of the stack?
+** Outputs 
+** The example shows a simple CloudFormation template. It creates an EC2 instance based on the AMI - ami-d6f32ab5. When the instance is created, it will output the AZ in which it is created. {     "Resources": {         "MyEC2Instance": {             "Type": "AWS::EC2::Instance",             "Properties": {                 "ImageId": "ami-d6f32ab5"             }         }     },     "Outputs": {         "Availability": {             "Description": "The Instance ID",             "Value":             { "Fn::GetAtt" : [ "MyEC2Instance", "AvailabilityZone" ]}         }     } }
+
+* Is it true that EBS can always tolerate an Availability Zone failure?
+** No, all EBS volumes are stored in a single Availability Zone 
+** EBS Volume replicated to physical hardware with in the same available zone, So if AZ fails then EBS volume will fail. That's why AWS recommend to always keep EBS volume snapshot in S3 bucket for high durability. "When you create an EBS volume in an Availability Zone, it is automatically replicated within that zone to prevent data loss due to the failure of any single hardware component." Option B is wrong as EBS volume has multiple copies but with in same AZ , so volume will not persist in case of AZ failure. Option C is wrong because there is no special setup available to persist EBS volume across region or AZ. Answer D is wrong as EBS volume has same behavior regardless of region. As per AWS user guide:  http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html 
+
+* 101 (This was correct by blind luck) A company wants to host a selection of MongoDB instances. They are expecting a high load and want to have as low latency as possible. Which class of instances from the below list should they choose from.
+** I2 
+** I2 instances are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications. They are well suited for the following scenarios: NoSQL databases (for example, Cassandra and MongoDB) Clustered databases Online transaction processing (OLTP) systems For more information on I2 instances, please visit the link http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/i2-instances.html
+
+* 102 Which of the below elements can you manage in the IAM dashboard? Choose 3 answers from the options given below
+** 3 Answers 
+   - Users 
+   - Encryption Keys 
+   - Policies 
+** When you go to your IAM dashboard, you will see the set of elements which can be configured.
+
+* 119 How long can messages live in a SQS queue ?
+  
+
+
+
