@@ -1,0 +1,103 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+TITLE: Python and Dependency Management
+#+EMAIL: thomas.harvell@wexinc.com 
+#+AUTHOR: Tom Harvell 
+
+#+REVEAL_THEME: night 
+#+OPTIONS: num:nil toc:nil search:nill
+
+* Bash profile 
+- ~/.bin _ bash
+- export la='lah'
+
+* Home brew
+- https://brew.sh/
+- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+* Base Python
+- MacOS comes with Python pre-installed. 
+** Where does my base python live? 
+- /usr/bin/python
+** HOWEVER!!!
+- MacOS will stop shipping with python shortly
+- 2.7 wont ever get security updates again. 
+- SO DON'T USE IT. 
+
+* Anacondas
+- https://www.anaconda.com/distribution/
+- If you are on windows probably just use Anacondas. 
+- If your code will only ever run in a notebook use this. 
+ 
+* Install by hand 
+- https://www.python.org/
+- /Library/Frameworks/Python.framework/Versions/
+
+* A better way! Pyenv 
+- https://github.com/pyenv/pyenv 
+- Nice install tutorial  https://amaral.northwestern.edu/resources/guides/pyenv-tutorial
+
+** But it really just boils down to one command
+- curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+
+** And add this to your ~/.bash _ profile 
+- export PATH="/Users/tharvell/.pyenv/bin:$PATH"
+- eval "$(pyenv init -)"
+- eval "$(pyenv virtualenv-init -)"
+- export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+** What does pyenv get you? 
+- Easy install and manage all the python environments. 
+- Easy setting of different 'global' pythons 
+- easy switching to different python versions 
+
+** Install a new python version 
+- pyenv install 3.4.0
+
+** Try this version out for a while  
+- pyenv local 3.4.0
+
+** Set your 'global' pythons
+- pyenv global 3.4.0
+
+** What python versions do I have installed?
+- pyenv versions  
+
+* Python Packaging 
+- pip install some-package 
+
+* Virtual environments to the rescue! 
+ 
+** The manual way   
+- python -m venv virtual_environment_name
+
+** The centralized way
+- virtualenvwrapper : https://virtualenvwrapper.readthedocs.io/en/latest/
+
+** You made the smart choice to use pyenv 
+- brew install pyenv-virtualenvwrapper
+
+* Virtualenvwrapper 
+** Create a new virtual environment
+- mkvirtualenv virtual_environment_name
+
+** What virtual environment have I created in the past? 
+- lsvirtualenv
+
+** Work on an already existing virtual environment. 
+- workon virtual_environment_name
+
+** Stop using a virtual environment 
+- deactivate 
+
+** Delete a virtual environment.  
+- rmvirtualenv
+
+* Why did we do we worry about all of this?  
+- Easier to share code between each other! 
+- Security of deployments (Do you even know all the packages in condas?)
+
+** pip freeze is awesome! 
+- pip freeze 
+- pip freeze > requirements.txt 
+ 
